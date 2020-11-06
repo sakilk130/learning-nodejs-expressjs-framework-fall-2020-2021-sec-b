@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const login = require('./controller/login');
 const home = require('./controller/home');
 const logout = require('./controller/logout');
+const user = require('./controller/user');
 const app = express();
 
 //config
@@ -25,6 +26,7 @@ app.use(cookieParser());
 app.use('/login', login);
 app.use('/home', home);
 app.use('/logout', logout);
+app.use('/user', user);
 
 //route
 app.get('/', (req, res) => {

@@ -4,28 +4,10 @@
     <title>Home Page</title>
   </head>
   <body>
-    <h1>User list</h1>
-    <table border="1px">
-      <tr>
-        <td>Name</td>
-        <td>ID</td>
-        <td>Dept</td>
-        <td>Cradit Complete</td>
-      </tr>
+    <h1>This is home page</h1>
 
-      <% for(var i=0; i<studentList.length; i++) { %>
-      <tr>
-        <td> <%= studentList[i][0] %> </td>
-		<td> <%= studentList[i][1] %> </td>
-		<td> <%= studentList[i][2] %> </td>
-		<td> <%= studentList[i][3] %> </td>
-		<td> <%= studentList[i][4] %> </td>
-      </tr>
-      <% } %>
-    </table>
-
-    <br />
-
+    <a href="/user/create">Create New User</a> |
+    <a href="/home/userlist">User list</a> |
     <a href="/logout">logout</a>
   </body>
 </html>
