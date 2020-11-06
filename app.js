@@ -24,13 +24,13 @@ app.use(
 app.use(cookieParser());
 
 app.use('/login', login);
-app.use('/home', home);
+app.use('/', home);
 app.use('/logout', logout);
 app.use('/user', user);
 
 //route
-app.get('/', (req, res) => {
-  res.send('Hello from express server');
+app.get('*', (req, res) => {
+  res.send('<h1>404 Not Found</h1>');
 });
 
 //server startup

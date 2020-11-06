@@ -10,7 +10,7 @@ router.post('/', (req, res) => {
     //req.session.uname =  req.body.username;
 
     res.cookie('uname', req.body.username);
-    res.redirect('/home');
+    res.redirect('/');
   } else {
     res.redirect('/login');
   }
