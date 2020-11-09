@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const mysql = require('mysql');
 
 router.get('/', (req, res) => {
   res.render('login/index');
@@ -8,9 +9,8 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   if (req.body.username == req.body.password) {
     //req.session.uname =  req.body.username;
-
     res.cookie('uname', req.body.username);
-    res.redirect('/');
+    res.redirect('/home');
   } else {
     res.redirect('/login');
   }

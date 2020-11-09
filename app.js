@@ -8,6 +8,7 @@ const home = require('./controller/home');
 const logout = require('./controller/logout');
 const user = require('./controller/user');
 const app = express();
+const index = require('./controller/index');
 
 //config
 app.set('view engine', 'ejs');
@@ -23,8 +24,9 @@ app.use(
 );
 app.use(cookieParser());
 
+app.use('/', index);
+app.use('/home', home);
 app.use('/login', login);
-app.use('/', home);
 app.use('/logout', logout);
 app.use('/user', user);
 
@@ -34,6 +36,7 @@ app.get('*', (req, res) => {
 });
 
 //server startup
-app.listen(3000, (error) => {
-  console.log('express server started at 3000...');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, (error) => {
+  console.log(`express server started at ${PORT}`);
 });
