@@ -4,7 +4,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
   //req.session.uname != null
   if (req.cookies['uname'] != null) {
-    res.render('home/index');
+    res.render('home/home');
   } else {
     res.redirect('/login');
   }
