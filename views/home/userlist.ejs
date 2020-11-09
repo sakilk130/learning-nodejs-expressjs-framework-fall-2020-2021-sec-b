@@ -6,7 +6,7 @@
   <body>
     <h3>Userlist</h3>
 
-    <a href="/">Back</a> |
+    <a href="/home">Back</a> |
     <a href="/logout">logout</a>
     <br />
 
@@ -21,12 +21,12 @@
 
       <% for(var i=0; i< userlist.length; i++ ){ %>
       <tr>
-        <td><%= userlist[i][0] %></td>
-        <td><%= userlist[i][1] %></td>
-        <td><%= userlist[i][2] %></td>
-        <td><%= userlist[i][3] %></td>
+        <td><%= userlist[i].id %></td>
+        <td><%= userlist[i].username %></td>
+        <td><%= userlist[i].password %></td>
+        <td><%= userlist[i].type %></td>
         <td>
-          <a href="/user/edit/<%= userlist[i][0] %>">Edit</a> |
+          <a href="/user/edit/<%= userlist[i].id %>">Edit</a> |
           <a href="">Delete</a>
         </td>
       </tr>
