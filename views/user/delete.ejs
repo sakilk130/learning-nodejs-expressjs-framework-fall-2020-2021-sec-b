@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>Username:</td>
+        <td><%= userlist[0].username %></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td><%= userlist[0].password %></td>
+      </tr>
+      <tr>
+        <td>User:</td>
+        <td><%= userlist[0].type %></td>
+      </tr>
+    </table>
+    <hr />
+    <form method="POST">
+      <h2>Confirm</h2>
+      <input type="submit" name="submit" value="Confirm" />
+      <a href="/home/userlist">Cancel</a>
+    </form>
+  </body>
+</html>

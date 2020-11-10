@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 var mysql = require('mysql');
 
+// New user Create--Get
 router.get('/create', (req, res) => {
   res.render('user/create');
 });
-
+// New user Create--Post
 router.post('/create', (req, res) => {
   var con = mysql.createConnection({
     host: '127.0.0.1',
@@ -28,6 +29,7 @@ router.post('/create', (req, res) => {
   res.redirect('/home/userlist');
 });
 
+// user Update--Get
 router.get('/edit/:id', (req, res) => {
   var id = req.params.id;
   var connection = mysql.createConnection({
@@ -57,6 +59,7 @@ router.get('/edit/:id', (req, res) => {
   });
 });
 
+// user Update--Post
 router.post('/edit/:id', (req, res) => {
   var id = req.params.id;
   var connection = mysql.createConnection({
@@ -73,7 +76,6 @@ router.post('/edit/:id', (req, res) => {
     }
     console.log('connected as id ' + connection.threadId);
   });
-  var data = [[req.body.username, req.body.password, req.body.type, 1]];
   var sql =
     "UPDATE user SET username='" +
     req.body.username +
@@ -85,7 +87,7 @@ router.post('/edit/:id', (req, res) => {
     id +
     "'";
 
-  connection.query(sql, [data], function (error, results) {
+  connection.query(sql, function (error, results) {
     if (error) throw error;
     console.log('1 record update');
   });
@@ -96,4 +98,62 @@ router.post('/edit/:id', (req, res) => {
   res.redirect('/home/userlist');
 });
 
+// user Delete--Get
+router.get('/delete/:id', (req, res) => {
+  var id = req.params.id;
+  var connection = mysql.createConnection({
+    host: '127.0.0.1',
+    user: 'sakil',
+    password: 'rREPa3GP54',
+    database: 'node1',
+  });
+
+  connection.connect(function (err) {
+    if (err) {
+      console.error('error connecting: ' + err.stack);
+      return;
+    }
+    console.log('connected as id ' + connection.threadId);
+  });
+
+  var sql = "select * from user where id='" + req.params.id + "'";
+
+  connection.query(sql, function (error, results) {
+    console.log(results);
+    res.render('user/delete', { userlist: results });
+  });
+
+  connection.end(function (err) {
+    console.log('connection closed!');
+  });
+});
+
+router.post('/delete/:id', (req, res) => {
+  var id = req.params.id;
+  var connection = mysql.createConnection({
+    host: '127.0.0.1',
+    user: 'sakil',
+    password: 'rREPa3GP54',
+    database: 'node1',
+  });
+
+  connection.connect(function (err) {
+    if (err) {
+      console.error('error connecting: ' + err.stack);
+      return;
+    }
+    console.log('connected as id ' + connection.threadId);
+  });
+  var sql = "DELETE FROM user WHERE id='" + id + "'";
+
+  connection.query(sql, function (error, results) {
+    if (error) throw error;
+    console.log('1 record delete');
+  });
+
+  connection.end(function (err) {
+    console.log('connection closed!');
+  });
+  res.redirect('/home/userlist');
+});
 module.exports = router;
