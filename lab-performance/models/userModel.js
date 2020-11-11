@@ -56,5 +56,10 @@ module.exports = {
       callback(status);
     });
   },
-  delete: function () {},
+  delete: function (user, callback) {
+    sql = "DELETE FROM user WHERE id='" + user.id + "'";
+    db.execute(sql, function (status) {
+      callback(status);
+    });
+  },
 };

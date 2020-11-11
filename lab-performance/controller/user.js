@@ -28,7 +28,7 @@ router.get('/edit/:id', (req, res) => {
   var user = {
     id: req.params.id,
   };
-  userModel.getById(function (results) {
+  userModel.getById(user, function (results) {
     res.render('user/edit', { user: results });
   });
 });
@@ -52,18 +52,23 @@ router.post('/edit/:id', (req, res) => {
 router.get('/delete/:id', (req, res) => {
   var user = {
     id: req.params.id,
-    username: 'alamin',
-    password: '123',
-    email: 'alamin@gmail.com',
-    dept: 'CS',
   };
-
-  res.render('user/delete', user);
+  userModel.getById(user, function (results) {
+    res.render('user/delete', { user: results });
+  });
 });
 
 router.post('/delete/:id', (req, res) => {
-  //delete from DB
-  res.redirect('/home/userlist');
+  var user = {
+    id: req.params.id,
+  };
+  userModel.delete(user, function (status) {
+    if (status) {
+      res.redirect('/home/userlist');
+    } else {
+      res.send('Delete failed');
+    }
+  });
 });
 
 module.exports = router;
