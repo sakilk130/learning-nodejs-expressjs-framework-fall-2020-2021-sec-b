@@ -16,7 +16,12 @@ module.exports = {
       }
     });
   },
-  getById: function () {},
+  getById: function (user, callback) {
+    var sql = "SELECT * FROM user WHERE id='" + user.id + "'";
+    db.getResults(sql, function (results) {
+      callback(results);
+    });
+  },
   getAll: function (callback) {
     var sql = 'select * from user';
     db.getResults(sql, function (results) {
@@ -36,6 +41,20 @@ module.exports = {
       callback(status);
     });
   },
-  update: function () {},
+  update: function (user, callback) {
+    sql =
+      "UPDATE user SET username='" +
+      user.username +
+      "',password='" +
+      user.password +
+      "', type='" +
+      user.type +
+      "' where id='" +
+      user.id +
+      "'";
+    db.execute(sql, function (status) {
+      callback(status);
+    });
+  },
   delete: function () {},
 };

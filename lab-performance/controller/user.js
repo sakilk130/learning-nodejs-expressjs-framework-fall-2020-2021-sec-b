@@ -27,22 +27,26 @@ router.get('/edit/:id', (req, res) => {
   //res.send(data);
   var user = {
     id: req.params.id,
-    username: 'alamin',
-    password: '123',
-    email: 'alamin@gmail.com',
-    dept: 'CS',
   };
-
-  res.render('user/edit', user);
+  userModel.getById(function (results) {
+    res.render('user/edit', { user: results });
+  });
 });
 
 router.post('/edit/:id', (req, res) => {
-  //req.body.username
-  //req.body.email
-  //req.body.password
-  //req.body.dept
-
-  res.redirect('/home/userlist');
+  var user = {
+    id: req.params.id,
+    username: req.body.username,
+    password: req.body.password,
+    type: req.body.type,
+  };
+  userModel.update(user, function (status) {
+    if (status) {
+      res.redirect('/home/userlist');
+    } else {
+      res.send('Not Update');
+    }
+  });
 });
 
 router.get('/delete/:id', (req, res) => {
