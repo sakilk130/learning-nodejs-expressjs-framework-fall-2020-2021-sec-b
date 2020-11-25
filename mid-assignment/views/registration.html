@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Create New Account</title>
+
+    <!-- Site favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assets/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/abc/images/favicon-16x16.png"
+    />
+
+    <!-- Mobile Specific Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="../assets/styles/core.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/abc/styles/icon-font.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../assets/styles/style.css" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"
+    ></script>
+  </head>
+  <body class="login-page">
+    <div class="login-header box-shadow">
+      <div
+        class="container-fluid d-flex justify-content-between align-items-center"
+      >
+        <div class="brand-logo">
+          <a
+            class="text-primary text-center"
+            style="font-size: 24px; font-weight: 700"
+            href="login.html"
+          >
+            <img src="../assets/images/icons8-tour-guide-48.png" alt="" />
+            Travel Guide
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="login-wrap d-flex align-items-center flex-wrap justify-content-center"
+    >
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 col-lg-7">
+            <img src="../assets/images/login-page-img.png" alt="" />
+          </div>
+          <div class="col-md-6 col-lg-5">
+            <div class="login-box bg-white box-shadow border-radius-10">
+              <div class="login-title">
+                <h2 class="text-center text-primary">Create your account</h2>
+              </div>
+              <form method="POST">
+                <!-- Store Name -->
+                <div class="input-group custom">
+                  <input
+                    type="text"
+                    class="form-control form-control-lg"
+                    name="store_name"
+                    placeholder="Store Name"
+                    required
+                  />
+                </div>
+                <!-- Username -->
+                <div class="input-group custom">
+                  <input
+                    type="text"
+                    class="form-control form-control-lg"
+                    name="username"
+                    placeholder="Username"
+                    required
+                  />
+                </div>
+                <!-- Email -->
+                <div class="input-group custom">
+                  <input
+                    type="email"
+                    class="form-control form-control-lg"
+                    name="email"
+                    placeholder="Email"
+                    required
+                  />
+                </div>
+
+                <!-- Phone -->
+                <div class="input-group custom">
+                  <input
+                    type="text"
+                    class="form-control form-control-lg"
+                    name="phone"
+                    placeholder="Phone Number"
+                    required
+                  />
+                </div>
+                <!-- Address -->
+                <div class="input-group custom">
+                  <input
+                    type="text"
+                    class="form-control form-control-lg"
+                    name="address"
+                    placeholder="Address"
+                    required
+                  />
+                </div>
+                <!-- Password -->
+                <div class="input-group custom">
+                  <input
+                    type="password"
+                    class="form-control form-control-lg"
+                    name="password"
+                    placeholder="Password"
+                  />
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="input-group mb-0">
+                      <!-- Submit -->
+                      <input
+                        class="btn btn-primary btn-lg btn-block"
+                        type="submit"
+                        name="submit"
+                        value="Create account"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- js -->
+    <script src="../assets/scripts/core.js"></script>
+    <script src="../assets/scripts/script.min.js"></script>
+    <script src="../assets/scripts/process.js"></script>
+    <script src="../assets/scripts/layout-settings.js"></script>
+  </body>
+</html>
