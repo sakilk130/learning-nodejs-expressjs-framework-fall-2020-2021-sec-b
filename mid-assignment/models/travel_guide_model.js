@@ -110,6 +110,71 @@ module.exports = {
     });
   },
 
+  createPost: function (user, callback) {
+    var sql =
+      "INSERT INTO post (ffrom, tto, drescription,cost,create_date,username,status) VALUES ('" +
+      user.from +
+      "' , '" +
+      user.to +
+      "' , '" +
+      user.drescription +
+      "','" +
+      user.cost +
+      "','" +
+      user.create_date +
+      "','" +
+      user.uname +
+      "','" +
+      user.status +
+      "')";
+    db.getResults(sql, function (results) {
+      callback(results);
+    });
+  },
+  getPostUname: function (user, callback) {
+    var sql = "SELECT * FROM post WHERE status='" + user + "'";
+    console.log(sql);
+    db.getResults(sql, function (results) {
+      callback(results);
+    });
+  },
+
+  getPostById: function (user, callback) {
+    var sql = "SELECT * FROM post WHERE id='" + user + "'";
+    console.log(sql);
+    db.getResults(sql, function (results) {
+      callback(results);
+    });
+  },
+  updatePost: (user, callback) => {
+    var sql =
+      "UPDATE post SET ffrom='" +
+      user.ffrom +
+      "', tto='" +
+      user.tto +
+      "', drescription='" +
+      user.drescription +
+      "', cost='" +
+      user.cost +
+      "', create_date='" +
+      user.create_date +
+      "', status='" +
+      user.status +
+      "' where id='" +
+      user.id +
+      "'";
+    db.getResults(sql, function (results) {
+      callback(results);
+    });
+  },
+  deletePost: function (user, callback) {
+    var sql = "DELETE FROM post WHERE id='" + user + "'";
+    console.log(sql);
+    db.getResults(sql, function (results) {
+      callback(results);
+    });
+  },
+
   // getAll: function (callback) {
   //   var sql = 'select * from user';
   //   db.getResults(sql, function (results) {

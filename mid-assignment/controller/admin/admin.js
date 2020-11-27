@@ -151,4 +151,67 @@ router.get('/scouts', (req, res) => {
     res.redirect('/login');
   }
 });
+
+router.get('/post', (req, res) => {
+  if (req.cookies['uname'] != null) {
+    travel_guide_model.getPostUname('pending', function (results) {
+      res.render('admin/pending_post', { post: results });
+    });
+  } else {
+    res.redirect('/login');
+  }
+});
+router.get('/post/edit/:id', (req, res) => {
+  if (req.cookies['uname'] != null) {
+    const id = req.params.id;
+    travel_guide_model.getPostById(id, function (results) {
+      res.render('admin/post_edit', { post: results });
+    });
+  } else {
+    res.redirect('/login');
+  }
+});
+
+router.post('/post/edit/:id', (req, res) => {
+  const post = {
+    id: req.params.id,
+    create_date: req.body.create_date,
+    ffrom: req.body.ffrom,
+    tto: req.body.tto,
+    drescription: req.body.drescription,
+    cost: req.body.cost,
+    status: req.body.status,
+  };
+
+  if (req.cookies['uname'] != null) {
+    travel_guide_model.updatePost(post, function (results) {
+      res.redirect('/admin/post');
+    });
+  } else {
+    res.redirect('/login');
+  }
+});
+
+router.get('/post/delete/:id', (req, res) => {
+  const id = req.params.id;
+
+  if (req.cookies['uname'] != null) {
+    travel_guide_model.getPostById(id, function (results) {
+      res.render('admin/delete_post', { post: results });
+    });
+  } else {
+    res.redirect('/login');
+  }
+});
+
+router.post('/post/delete/:id', (req, res) => {
+  const id = req.params.id;
+  if (req.cookies['uname'] != null) {
+    travel_guide_model.deletePost(id, function (results) {
+      res.redirect('/admin/post');
+    });
+  } else {
+    res.redirect('/login');
+  }
+});
 module.exports = router;

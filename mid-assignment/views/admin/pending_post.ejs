@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+  </head>
+  <body>
+    <h2>Welcome Admin</h2>
+    <h3>Pending Post</h3>
+    <a href="/admin">Home |</a>
+    <a href="/admin/profile">Profile </a> |
+    <a href="/admin/change"> Change Password </a> |
+    <a href="/logout">Logout </a>
+    <hr />
+    <a href="/admin/post">Pending Post</a> |
+    <a href="/admin/users">All General User</a> |
+    <a href="/admin/scouts">All Scouts</a>
+    <hr />
+    <h4>All Pending Post</h4>
+    <div>
+        <hr />
+        <% for(let i=0;i<post.length; i++){ %> 
+        <table>
+          <tr>
+            <td>Post Date:</td>
+            <td><%=post[i].create_date %></td>
+          </tr>
+          <tr>
+            <td>From:</td>
+            <td><%=post[i].ffrom %></td>
+          </tr>
+          <tr>
+            <td>To:</td>
+            <td><%=post[i].tto %></td>
+          </tr>
+          <tr>
+            <td>Drescription:</td>
+            <td><%=post[i].drescription %></td>
+          </tr>
+          <tr>
+            <td>Total Cost:</td>
+            <td><%=post[i].cost %></td>
+          </tr>
+          <tr>
+            <td><a style="color: green;" href="/admin/post/edit/<%=post[i].id  %> ">Edit Status</a></td>
+            <td><a style="color: red;" href="/admin/post/delete/<%=post[i].id  %> ">Delete</a></td>
+          </tr>
+        </table>
+        <hr />
+      <% } %> 
+      </div>
+  </body>
+</html>

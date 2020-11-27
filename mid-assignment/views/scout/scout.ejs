@@ -13,5 +13,60 @@
     <a href="/scout/change"> Change Password </a> |
     <a href="/logout">Logout </a>
     <hr />
+    <h4>Create a post</h4>
+    <form method="POST">
+      <table>
+        <tr>
+          <td>From:</td>
+          <td><input type="text" name="from" /></td>
+        </tr>
+        <tr>
+          <td>To:</td>
+          <td><input type="text" name="to" /></td>
+        </tr>
+        <tr>
+          <td>Drescription:</td>
+          <td><textarea name="drescription" cols="30" rows="5"></textarea></td>
+        </tr>
+        <tr>
+          <td>Total Cost:</td>
+          <td><input type="text" name="cost" /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="submit" name="submit" /></td>
+        </tr>
+      </table>
+    </form>
+    <hr />
+    <h4 style="color: royalblue">All Post</h4>
+    <div>
+      <hr />
+      <% for(let i=0;i<post.length; i++){ %> 
+      <table>
+        <tr>
+          <td>Post Date:</td>
+          <td><%=post[i].create_date %></td>
+        </tr>
+        <tr>
+          <td>From:</td>
+          <td><%=post[i].ffrom %></td>
+        </tr>
+        <tr>
+          <td>To:</td>
+          <td><%=post[i].tto %></td>
+        </tr>
+        <tr>
+          <td>Drescription:</td>
+          <td><%=post[i].drescription %></td>
+        </tr>
+        <tr>
+          <td>Total Cost:</td>
+          <td><%=post[i].cost %></td>
+        </tr>
+      </table>
+      <hr />
+    <% } %> 
+    </div>
   </body>
 </html>

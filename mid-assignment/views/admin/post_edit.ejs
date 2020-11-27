@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+  </head>
+  <body>
+    <h2>Welcome Admin</h2>
+    <h3>Edit Post</h3>
+    <a href="/admin">Home |</a>
+    <a href="/admin/profile">Profile </a> |
+    <a href="/admin/change"> Change Password </a> |
+    <a href="/logout">Logout </a>
+    <hr />
+    <a href="/admin/post">Pending Post</a> |
+    <a href="/admin/users">All General User</a> |
+    <a href="/admin/scouts">All Scouts</a>
+    <hr />
+    <h4>All Pending Post</h4>
+    <div>
+      <hr />
+
+      <form method="POST">
+        <table>
+          <tr>
+            <td>Post Date:</td>
+            <td>
+              <input
+                type="text"
+                name="create_date"
+                value="<%=post[0].create_date %>"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>From:</td>
+            <td>
+              <input type="text" name="ffrom" value="<%=post[0].ffrom %>" />
+            </td>
+          </tr>
+          <tr>
+            <td>To:</td>
+            <td><input type="text" name="tto" value="<%=post[0].tto %>" /></td>
+          </tr>
+          <tr>
+            <td>Drescription:</td>
+            <td>
+              <textarea name="drescription" cols="30" rows="5">
+<%=post[0].drescription %></textarea
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Total Cost:</td>
+            <td>
+              <input type="text" name="cost" value="<%=post[0].cost %>" />
+            </td>
+          </tr>
+          <tr></tr>
+          <tr>
+            <td>Status:</td>
+            <td>
+              <select name="status">
+                <option>--Select Status--</option>
+                <option value="pending" selected>Pending</option>
+                <option value="accept">Accept</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <input
+                style="background-color: green"
+                type="submit"
+                name="submit"
+                value="Edit Post"
+              />
+            </td>
+          </tr>
+        </table>
+      </form>
+
+      <hr />
+    </div>
+  </body>
+</html>

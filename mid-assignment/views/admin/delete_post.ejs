@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile</title>
+    <title>Admin</title>
   </head>
   <body>
     <h2>Welcome Admin</h2>
-    <h3>Change Password</h3>
+    <h3>Delete Post</h3>
     <a href="/admin">Home |</a>
     <a href="/admin/profile">Profile </a> |
     <a href="/admin/change"> Change Password </a> |
@@ -21,28 +21,33 @@
     <form method="POST">
       <table>
         <tr>
-          <td>Old Password</td>
-          <td>
-            <input type="password" name="old_pass" placeholder="******" />
-          </td>
+          <td>Post Date:</td>
+          <td><%=post[0].create_date %></td>
         </tr>
         <tr>
-          <td>New Password</td>
-          <td>
-            <input type="password" name="new_pass" placeholder="*******" />
-          </td>
+          <td>From:</td>
+          <td><%=post[0].ffrom %></td>
         </tr>
         <tr>
-          <td>Confirm Password</td>
-          <td>
-            <input type="password" name="c_new_pass" placeholder="*******" />
-          </td>
+          <td>To:</td>
+          <td><%=post[0].tto %></td>
         </tr>
         <tr>
-          <td></td>
-          <td><input type="submit" name="submit" value="Change Password" /></td>
+          <td>Drescription:</td>
+          <td><%=post[0].drescription %></td>
+        </tr>
+        <tr>
+          <td>Cost:</td>
+          <td><%=post[0].cost %></td>
         </tr>
       </table>
+      <h4>Are You Sure?</h4>
+      <input
+        style="background-color: red; cursor: pointer"
+        type="submit"
+        name="submit"
+        value="Confirm"
+      />
     </form>
   </body>
 </html>
