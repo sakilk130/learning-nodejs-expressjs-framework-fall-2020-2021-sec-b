@@ -14,40 +14,38 @@
     <a href="/logout">Logout </a>
     <hr />
     <a href="/user/allwishlist">Wishlist </a>
-<hr>
-      <div>
-        <hr />
-    <% for(let i=0;i<post.length; i++){ %> 
-      <a href="/user/wishlist/<%=post[i].id  %> ">Add to Wishlist</a>
+    <hr />
+
+    <div>
+      <hr />
+      <% for(let i=0;i<post.length; i++){ %> 
       <table>
         <tr>
           <td>Post Date:</td>
-          <td><%=post[i].create_date %></td>
+          <td><%=post[i].createdate %></td>
         </tr>
         <tr>
           <td>From:</td>
-          <td><%=post[i].ffrom %></td>
+          <td><%=post[i].from %></td>
         </tr>
         <tr>
           <td>To:</td>
-          <td><%=post[i].tto %></td>
+          <td><%=post[i].to %></td>
         </tr>
         <tr>
           <td>Drescription:</td>
-          <td><%=post[i].drescription %></td>
+          <td><%=post[i].postdrescription %></td>
         </tr>
         <tr>
           <td>Total Cost:</td>
-          <td><%=post[i].cost %></td>
+          <td><%=post[i].postcost %></td>
         </tr>
-
       </table>
-     
+      <a href="">Remove Wishlist</a>
       <hr />
-    <% } %> 
-      </div>
-  
 
+    <% } %> 
+    </div>
    
   </body>
 </html>

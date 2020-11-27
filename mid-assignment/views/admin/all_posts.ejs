@@ -7,19 +7,18 @@
   </head>
   <body>
     <h2>Welcome Admin</h2>
-    <h3>Pending Post</h3>
+    <h3>All Post</h3>
     <a href="/admin">Home |</a>
     <a href="/admin/profile">Profile </a> |
     <a href="/admin/change"> Change Password </a> |
     <a href="/logout">Logout </a>
     <hr />
     <a href="/admin/all_posts">All Posts</a> |
-
     <a href="/admin/post">Pending Post</a> |
     <a href="/admin/users">All General User</a> |
     <a href="/admin/scouts">All Scouts</a>
     <hr />
-    <h4>All Pending Post</h4>
+    <h4>All Post</h4>
     <div>
         <hr />
         <% for(let i=0;i<post.length; i++){ %> 
@@ -45,8 +44,8 @@
             <td><%=post[i].cost %></td>
           </tr>
           <tr>
-            <td><a style="color: green;" href="/admin/post/edit/<%=post[i].id  %> ">Edit Status</a></td>
-            <td><a style="color: red;" href="/admin/post/delete/<%=post[i].id  %> ">Delete</a></td>
+            <td><a style="color: green;" href="/admin/all_posts/edit/<%=post[i].id  %> ">Edit Status</a></td>
+            <td><a style="color: red;" href="/admin/all_posts/delete/<%=post[i].id  %> ">Delete</a></td>
           </tr>
         </table>
         <hr />

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+  </head>
+  <body>
+    <h2>Welcome <%=user[0].name %></h2>
+    <h3>Home</h3>
+    <a href="/user">Home |</a>
+    <a href="/user/profile">Profile </a> |
+    <a href="/user/change"> Change Password </a> |
+    <a href="/logout">Logout </a>
+    <hr />
+    <a href="/user/allwishlist">Wishlist </a>
+    <hr />
+    <form method="POST">
+      <div>
+        <hr />
+
+        <table>
+          <tr>
+            <td>Post Date:</td>
+            <td><%=post[0].create_date %></td>
+          </tr>
+          <tr>
+            <td>From:</td>
+            <td><%=post[0].ffrom %></td>
+          </tr>
+          <tr>
+            <td>To:</td>
+            <td><%=post[0].tto %></td>
+          </tr>
+          <tr>
+            <td>Drescription:</td>
+            <td><%=post[0].drescription %></td>
+          </tr>
+          <tr>
+            <td>Total Cost:</td>
+            <td><%=post[0].cost %></td>
+          </tr>
+        </table>
+
+        <hr />
+      </div>
+      <input type="submit" name="submit" value="Add Wishlist" />
+    </form>
+  </body>
+</html>

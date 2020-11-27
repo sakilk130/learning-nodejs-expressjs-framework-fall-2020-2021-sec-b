@@ -6,8 +6,9 @@ router.get('/', (req, res) => {
   if (req.cookies['uname'] != null) {
     const username = req.cookies['uname'];
     travel_guide_model.getByUsername(username, function (results) {
-      // console.log(results);
-      res.render('user/home', { user: results });
+      travel_guide_model.allPost('accept', function (results2) {
+        res.render('user/home', { user: results, post: results2 });
+      });
     });
   } else {
     res.redirect('/login');
@@ -80,6 +81,56 @@ router.post('/change', (req, res) => {
       res.send("Old Pass doesn't match");
     }
   });
+});
+
+router.get('/wishlist/:id', (req, res) => {
+  if (req.cookies['uname'] != null) {
+    const id = req.params.id;
+    travel_guide_model.getByUsername(req.cookies['uname'], function (results) {
+      travel_guide_model.getPostById(id, function (results2) {
+        res.render('user/wishlist', { user: results, post: results2 });
+      });
+    });
+  } else {
+    res.redirect('/login');
+  }
+});
+
+router.post('/wishlist/:id', (req, res) => {
+  const id = {
+    id: req.params.id,
+  };
+  if (req.cookies['uname'] != null) {
+    travel_guide_model.getByUsername(req.cookies['uname'], function (results) {
+      const wishlist = {
+        post_id: id.id,
+        user_id: results[0].id,
+      };
+      travel_guide_model.wishlist(wishlist, function (results2) {
+        res.redirect('/user/allwishlist');
+      });
+    });
+  } else {
+    res.redirect('/login');
+  }
+});
+
+router.get('/allwishlist', (req, res) => {
+  if (req.cookies['uname'] != null) {
+    travel_guide_model.getByUsername(req.cookies['uname'], function (results) {
+      const user = {
+        id: results[0].id,
+      };
+
+      travel_guide_model.getWishlist(results[0].id, function (results2) {
+        console.log(results2);
+
+        res.render('user/all_wishlist', { user: results, post: results2 });
+      });
+    });
+  } else {
+    res.redirect('/login');
+  }
 });
 
 module.exports = router;

@@ -133,7 +133,7 @@ module.exports = {
   },
   getPostUname: function (user, callback) {
     var sql = "SELECT * FROM post WHERE status='" + user + "'";
-    console.log(sql);
+
     db.getResults(sql, function (results) {
       callback(results);
     });
@@ -141,7 +141,7 @@ module.exports = {
 
   getPostById: function (user, callback) {
     var sql = "SELECT * FROM post WHERE id='" + user + "'";
-    console.log(sql);
+
     db.getResults(sql, function (results) {
       callback(results);
     });
@@ -169,50 +169,39 @@ module.exports = {
   },
   deletePost: function (user, callback) {
     var sql = "DELETE FROM post WHERE id='" + user + "'";
-    console.log(sql);
+
+    db.getResults(sql, function (results) {
+      callback(results);
+    });
+  },
+  allPost: function (user, callback) {
+    var sql = "SELECT * FROM post WHERE status='" + user + "'";
+
     db.getResults(sql, function (results) {
       callback(results);
     });
   },
 
-  // getAll: function (callback) {
-  //   var sql = 'select * from user';
-  //   db.getResults(sql, function (results) {
-  //     callback(results);
-  //   });
-  // },
-  // insert: function (user, callback) {
-  //   var sql =
-  //     "INSERT INTO user (username, password, type) VALUES ('" +
-  //     user.username +
-  //     "' , '" +
-  //     user.password +
-  //     "' , '" +
-  //     user.type +
-  //     "')";
-  //   db.execute(sql, function (status) {
-  //     callback(status);
-  //   });
-  // },
-  // update: function (user, callback) {
-  //   sql =
-  //     "UPDATE user SET username='" +
-  //     user.username +
-  //     "',password='" +
-  //     user.password +
-  //     "', type='" +
-  //     user.type +
-  //     "' where id='" +
-  //     user.id +
-  //     "'";
-  //   db.execute(sql, function (status) {
-  //     callback(status);
-  //   });
-  // },
-  // delete: function (user, callback) {
-  //   sql = "DELETE FROM user WHERE id='" + user.id + "'";
-  //   db.execute(sql, function (status) {
-  //     callback(status);
-  //   });
-  // },
+  wishlist: function (user, callback) {
+    var sql =
+      "INSERT INTO wishlist (post_id,user_id) VALUES ('" +
+      user.post_id +
+      "','" +
+      user.user_id +
+      "')";
+    db.getResults(sql, function (results) {
+      callback(results);
+    });
+  },
+
+  getWishlist: function (user, callback) {
+    var sql =
+      "SELECT post.ffrom AS postffrom, post.tto AS posttto, post.drescription AS postdrescription, post.cost AS postcost, post.create_date AS postcreate_date FROM post JOIN wishlist ON post.id = wishlist.post_id WHERE wishlist.user_id= '" +
+      user +
+      "'";
+    db.getResults(sql, function (results) {
+      callback(results);
+      console.log(results);
+    });
+  },
 };
