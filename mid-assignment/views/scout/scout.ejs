@@ -3,7 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scout Home</title>
+    <title>Admin</title>
   </head>
-  <body></body>
+  <body>
+    <h2>Welcome,<%=user[0].name %></h2>
+    <h3>Home</h3>
+    <a href="/scout">Home |</a>
+    <a href="/scout/profile">Profile </a> |
+    <a href="/scout/change"> Change Password </a> |
+    <a href="/logout">Logout </a>
+    <hr />
+  </body>
 </html>
