@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+  </head>
+  <body>
+    <h2>Welcome <%=user[0].name %></h2>
+    <h3>Profile</h3>
+    <a href="/user">Home |</a>
+    <a href="/user/profile">Profile </a> |
+    <a href="/user/change"> Change Password </a> |
+    <a href="/logout">Logout </a>
+
+    <form method="POST">
+      <table>
+        <tr>
+          <td>Name</td>
+          <td>
+            <input type="text" name="name" value="<%=user[0].name%>" />
+          </td>
+        </tr>
+        <tr>
+          <td>Username</td>
+          <td>
+            <input type="text" name="username" value="<%=user[0].username%>" />
+          </td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>
+            <input type="text" name="email" value="<%=user[0].email%>" />
+          </td>
+        </tr>
+        <tr>
+          <td>Phone</td>
+          <td>
+            <input type="text" name="phone" value="<%=user[0].phone%>" />
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="submit" name="submit" value="Edit Profile" /></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
