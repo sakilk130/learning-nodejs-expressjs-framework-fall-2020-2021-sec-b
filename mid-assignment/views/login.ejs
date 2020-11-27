@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Basic Page Info -->
     <meta charset="utf-8" />
-    <title>Create New Account</title>
+    <title>Login</title>
 
     <!-- Site favicon -->
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="../assets/images/apple-touch-icon.png"
+      href="../assets/images/icons8-tour-guide-48.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="../assets/images/favicon-32x32.png"
+      href="../assets/images/icons8-tour-guide-48.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="/abc/images/favicon-16x16.png"
+      href="../assets/images/icons8-tour-guide-48.png"
     />
 
     <!-- Mobile Specific Metas -->
@@ -39,7 +40,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="/abc/styles/icon-font.min.css"
+      href="../assets/styles/icon-font.min.css"
     />
     <link rel="stylesheet" type="text/css" href="../assets/styles/style.css" />
 
@@ -48,6 +49,15 @@
       async
       src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"
     ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-119386393-1');
+    </script>
   </head>
   <body class="login-page">
     <div class="login-header box-shadow">
@@ -77,80 +87,60 @@
           <div class="col-md-6 col-lg-5">
             <div class="login-box bg-white box-shadow border-radius-10">
               <div class="login-title">
-                <h2 class="text-center text-primary">Create your account</h2>
+                <h2 class="text-center text-primary">Login</h2>
               </div>
               <form method="POST">
-                <!-- Store Name -->
                 <div class="input-group custom">
                   <input
                     type="text"
-                    class="form-control form-control-lg"
-                    name="store_name"
-                    placeholder="Store Name"
-                    required
-                  />
-                </div>
-                <!-- Username -->
-                <div class="input-group custom">
-                  <input
-                    type="text"
-                    class="form-control form-control-lg"
                     name="username"
+                    class="form-control form-control-lg"
                     placeholder="Username"
                     required
                   />
+                  <div class="input-group-append custom">
+                    <span class="input-group-text"
+                      ><i class="icon-copy dw dw-user1"></i
+                    ></span>
+                  </div>
                 </div>
-                <!-- Email -->
-                <div class="input-group custom">
-                  <input
-                    type="email"
-                    class="form-control form-control-lg"
-                    name="email"
-                    placeholder="Email"
-                    required
-                  />
-                </div>
-
-                <!-- Phone -->
-                <div class="input-group custom">
-                  <input
-                    type="text"
-                    class="form-control form-control-lg"
-                    name="phone"
-                    placeholder="Phone Number"
-                    required
-                  />
-                </div>
-                <!-- Address -->
-                <div class="input-group custom">
-                  <input
-                    type="text"
-                    class="form-control form-control-lg"
-                    name="address"
-                    placeholder="Address"
-                    required
-                  />
-                </div>
-                <!-- Password -->
                 <div class="input-group custom">
                   <input
                     type="password"
-                    class="form-control form-control-lg"
                     name="password"
-                    placeholder="Password"
+                    class="form-control form-control-lg"
+                    placeholder="**********"
+                    required
                   />
+                  <div class="input-group-append custom">
+                    <span class="input-group-text"
+                      ><i class="dw dw-padlock1"></i
+                    ></span>
+                  </div>
                 </div>
-
+                <div class="row pb-30"></div>
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="input-group mb-0">
-                      <!-- Submit -->
                       <input
                         class="btn btn-primary btn-lg btn-block"
                         type="submit"
                         name="submit"
-                        value="Create account"
+                        value="Sign In"
                       />
+                    </div>
+                    <div
+                      class="font-16 weight-600 pt-10 pb-10 text-center"
+                      data-color="#707373"
+                    >
+                      OR
+                    </div>
+                    <div class="input-group mb-0">
+                      <a
+                        class="btn btn-outline-primary btn-lg btn-block"
+                        href="/registration"
+                        >Register To Create Account</a
+                      >
                     </div>
                   </div>
                 </div>
