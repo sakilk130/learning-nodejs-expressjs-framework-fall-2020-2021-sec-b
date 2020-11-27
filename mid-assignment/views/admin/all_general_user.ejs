@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+  </head>
+  <body>
+    <h2>Welcome Admin</h2>
+    <h3>All General User</h3>
+
+    <a href="/admin">Home |</a>
+    <a href="/admin/profile">Profile </a> |
+    <a href="/admin/change"> Change Password </a> |
+    <a href="/logout">Logout </a>
+    <hr />
+    <a href="/admin/users">All General User</a> |
+    <hr>
+    <form action="post">
+      <table border="1">
+        <tr>
+            <th>S.N</th>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Type</th>
+          <th>Action</th>
+        </tr>
+        <% for(let i=0; i<user.length; i++){ %> 
+        <tr>
+            <td><%=i+1  %> </td>
+          <td><%=user[i].name  %> </td>
+          <td><%=user[i].username  %></td>
+          <td><%=user[i].email  %></td>
+          <td><%=user[i].phone  %></td>
+          <td><%=user[i].type  %></td>
+          <td><a href="/admin/user/edit/<%=user[i].id%> ">Edit</a> | <a href="/admin/user/delete/<%=user[i].id%> ">Delete</a></td>
+        </tr>
+    <% } %> 
+      </table>
+    </form>
+  </body>
+</html>

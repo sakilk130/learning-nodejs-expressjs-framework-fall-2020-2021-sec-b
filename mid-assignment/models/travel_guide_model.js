@@ -71,6 +71,44 @@ module.exports = {
       callback(results);
     });
   },
+  getAllUsers: function (user, callback) {
+    var sql = "SELECT * FROM users WHERE type='" + user + "'";
+    db.getResults(sql, function (results) {
+      callback(results);
+    });
+  },
+  getById: function (user, callback) {
+    var sql = "SELECT * FROM users WHERE id='" + user + "'";
+    db.getResults(sql, function (results) {
+      callback(results);
+    });
+  },
+  updateUser: (user, callback) => {
+    var sql =
+      "UPDATE users SET name='" +
+      user.name +
+      "', username='" +
+      user.username +
+      "', email='" +
+      user.email +
+      "', phone='" +
+      user.phone +
+      "', type='" +
+      user.type +
+      "' where id='" +
+      user.id +
+      "'";
+    db.getResults(sql, function (results) {
+      callback(results);
+    });
+  },
+
+  deleteUser: (user, callback) => {
+    sql = "DELETE FROM users WHERE id='" + user + "'";
+    db.execute(sql, function (status) {
+      callback(status);
+    });
+  },
 
   // getAll: function (callback) {
   //   var sql = 'select * from user';

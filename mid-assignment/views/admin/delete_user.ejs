@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile</title>
+    <title>Admin</title>
   </head>
   <body>
     <h2>Welcome Admin</h2>
-    <h3>Change Password</h3>
+    <h3>Delete User</h3>
     <a href="/admin">Home |</a>
     <a href="/admin/profile">Profile </a> |
     <a href="/admin/change"> Change Password </a> |
@@ -18,28 +18,33 @@
     <form method="POST">
       <table>
         <tr>
-          <td>Old Password</td>
-          <td>
-            <input type="password" name="old_pass" placeholder="******" />
-          </td>
+          <td>Name:</td>
+          <td><%=user[0].name %></td>
         </tr>
         <tr>
-          <td>New Password</td>
-          <td>
-            <input type="password" name="new_pass" placeholder="*******" />
-          </td>
+          <td>Username:</td>
+          <td><%=user[0].username %></td>
         </tr>
         <tr>
-          <td>Confirm Password</td>
-          <td>
-            <input type="password" name="c_new_pass" placeholder="*******" />
-          </td>
+          <td>Email:</td>
+          <td><%=user[0].email %></td>
         </tr>
         <tr>
-          <td></td>
-          <td><input type="submit" name="submit" value="Change Password" /></td>
+          <td>Phone:</td>
+          <td><%=user[0].phone %></td>
+        </tr>
+        <tr>
+          <td>Type:</td>
+          <td><%=user[0].type %></td>
         </tr>
       </table>
+      <h4>Are You Sure?</h4>
+      <input
+        style="background-color: red; cursor: pointer"
+        type="submit"
+        name="submit"
+        value="Confirm"
+      />
     </form>
   </body>
 </html>

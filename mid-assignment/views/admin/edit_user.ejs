@@ -7,13 +7,13 @@
   </head>
   <body>
     <h2>Welcome Admin</h2>
-    <h3>Profile</h3>
+    <h3>Edit User</h3>
     <a href="/admin">Home |</a>
     <a href="/admin/profile">Profile </a> |
     <a href="/admin/change"> Change Password </a> |
     <a href="/logout">Logout </a>
     <hr />
-    <a href="/admin/users">All General User</a> |
+    <a href="/admin/users">All General Users</a> |
     <hr />
     <form method="POST">
       <table>
@@ -39,6 +39,16 @@
           <td>Phone</td>
           <td>
             <input type="text" name="phone" value="<%=user[0].phone%>" />
+          </td>
+        </tr>
+        <tr>
+          <td>Type</td>
+          <td>
+            <select name="type" id="">
+              <option>--Select Type--</option>
+              <option value="General User" selected>General User</option>
+              <option value="Scout">Scout</option>
+            </select>
           </td>
         </tr>
         <tr>
