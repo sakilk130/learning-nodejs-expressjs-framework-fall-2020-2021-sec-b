@@ -196,12 +196,29 @@ module.exports = {
 
   getWishlist: function (user, callback) {
     var sql =
-      "SELECT post.ffrom AS postffrom, post.tto AS posttto, post.drescription AS postdrescription, post.cost AS postcost, post.create_date AS postcreate_date FROM post JOIN wishlist ON post.id = wishlist.post_id WHERE wishlist.user_id= '" +
+      "SELECT post.ffrom AS postffrom, post.tto AS posttto, post.drescription AS postdrescription, post.cost AS postcost, post.create_date AS postcreate_date, wishlist.id AS wishlistid FROM post JOIN wishlist ON post.id = wishlist.post_id WHERE wishlist.user_id= '" +
       user +
       "'";
     db.getResults(sql, function (results) {
       callback(results);
       console.log(results);
+    });
+  },
+
+  getWishlistById: function (user, callback) {
+    var sql =
+      "SELECT post.ffrom AS postffrom, post.tto AS posttto, post.drescription AS postdrescription, post.cost AS postcost, post.create_date AS postcreate_date, wishlist.id AS wishlistid FROM post JOIN wishlist ON post.id = wishlist.post_id WHERE wishlist.id= '" +
+      user +
+      "'";
+    db.getResults(sql, function (results) {
+      callback(results);
+      console.log(results);
+    });
+  },
+  deleteWishlist: (user, callback) => {
+    var sql = "DELETE FROM wishlist WHERE id='" + user + "'";
+    db.getResults(sql, function (results) {
+      callback(results);
     });
   },
 };

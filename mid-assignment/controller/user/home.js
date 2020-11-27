@@ -133,4 +133,29 @@ router.get('/allwishlist', (req, res) => {
   }
 });
 
+router.get('/allwishlist/delete/:id', (req, res) => {
+  const id = req.params.id;
+
+  if (req.cookies['uname'] != null) {
+    travel_guide_model.getByUsername(req.cookies['uname'], function (results) {
+      travel_guide_model.getWishlistById(id, function (results2) {
+        res.render('user/remove_wishlist', { user: results, post: results2 });
+      });
+    });
+  } else {
+    res.redirect('/login');
+  }
+});
+
+router.post('/allwishlist/delete/:id', (req, res) => {
+  const id = req.params.id;
+  if (req.cookies['uname'] != null) {
+    travel_guide_model.deleteWishlist(id, function (results) {
+      res.redirect('/user/allwishlist');
+    });
+  } else {
+    res.redirect('/login');
+  }
+});
+
 module.exports = router;
