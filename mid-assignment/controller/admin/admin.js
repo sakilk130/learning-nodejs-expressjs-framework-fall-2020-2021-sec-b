@@ -141,5 +141,14 @@ router.post('/user/delete/:id', (req, res) => {
     res.redirect('/login');
   }
 });
-
+// All Scouts
+router.get('/scouts', (req, res) => {
+  if (req.cookies['uname'] != null) {
+    travel_guide_model.getAllUsers('Scout', function (results) {
+      res.render('admin/all_scouts', { user: results });
+    });
+  } else {
+    res.redirect('/login');
+  }
+});
 module.exports = router;
