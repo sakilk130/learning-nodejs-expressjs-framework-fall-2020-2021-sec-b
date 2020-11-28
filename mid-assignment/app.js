@@ -5,11 +5,11 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const login = require('./controller/login');
 const registration = require('./controller/registration');
-
 const user = require('./controller/user/home');
 const admin = require('./controller/admin/admin');
 const scout = require('./controller/scout/scout');
 const logout = require('./controller/admin/logout');
+const index = require('./controller/index');
 
 app.set('view engine', 'ejs');
 
@@ -31,10 +31,8 @@ app.use('/registration', registration);
 app.use('/user', user);
 app.use('/admin', admin);
 app.use('/scout', scout);
+app.use('/', index);
 
-app.get('/', (req, res) => {
-  res.render('index');
-});
 app.get('*', (req, res) => {
   res.send('404 Not Found');
 });

@@ -57,46 +57,21 @@
       <div class="container">
           <div class="col-md-8">
             <div class="row">
+              <% for(let i=0;i<post.length; i++){ %> 
               <div class="col-md-6">
                 <div class="service-item">
-                  <h4>Classic Modern Design</h4>
+                  <p>Post Date:<%=post[i].create_date  %> </p>
+                  <h4><%=post[i].ffrom  %>-<%=post[i].tto  %>  </h4>
+                 
                   <div style="background-color: #1b00ff;" class="line-dec"></div>
                   <p>
-                    Sed lacinia ligula est, at venenatis ex iaculis quis. Morbi
-                    sollicitudin nulla eget odio pellentesque.
+                    <%=post[i].drescription  %> 
                   </p>
+                <p style="color: rgb(74, 198, 12);">Total Fare:<%=post[i].cost  %> </p>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="service-item">
-                  <h4>Unique &amp; Creative Ideas</h4>
-                  <div style="background-color: #1b00ff;" class="line-dec"></div>
-                  <p>
-                    Sed lacinia ligula est, at venenatis ex iaculis quis. Morbi
-                    sollicitudin nulla eget odio pellentesque.
-                  </p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="service-item">
-                  <h4>Effective Team Work</h4>
-                  <div style="background-color: #1b00ff;" class="line-dec"></div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    lacinia ligula est, at venenatis ex iaculis quis.
-                  </p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="service-item">
-                  <h4>Fast Support 24/7</h4>
-                  <div style="background-color: #1b00ff;" class="line-dec"></div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    lacinia ligula est, at venenatis ex iaculis quis.
-                  </p>
-                </div>
-              </div>
+            <% } %> 
+            
             </div>
           </div>
         </div>
