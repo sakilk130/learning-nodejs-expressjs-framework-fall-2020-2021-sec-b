@@ -33,7 +33,7 @@ app.use('/admin', admin);
 app.use('/scout', scout);
 
 app.get('/', (req, res) => {
-  res.send('OK');
+  res.render('index');
 });
 app.get('*', (req, res) => {
   res.send('404 Not Found');
