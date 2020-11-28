@@ -221,4 +221,25 @@ module.exports = {
       callback(results);
     });
   },
+
+  commentPost: (user, callback) => {
+    var sql =
+      "INSERT INTO comments (post_id,username,comment) VALUES ('" +
+      user.id +
+      "','" +
+      user.username +
+      "','" +
+      user.comment +
+      "')";
+    db.getResults(sql, function (results) {
+      callback(results);
+    });
+  },
+
+  getCommentsById: function (user, callback) {
+    var sql = "SELECT * FROM comments WHERE post_id='" + user + "'";
+    db.getResults(sql, function (results) {
+      callback(results);
+    });
+  },
 };

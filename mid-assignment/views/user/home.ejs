@@ -18,7 +18,18 @@
       <div>
         <hr />
     <% for(let i=0;i<post.length; i++){ %> 
-      <a href="/user/wishlist/<%=post[i].id  %> ">Add to Wishlist</a>
+      <a style="background-color:white;
+      border: none;
+      color: black;
+      padding: 5px 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 13px;
+      margin: 4px 2px;
+      border: 2px solid #008CBA;
+      border-radius: 10px;
+      cursor: pointer;" href="/user/wishlist/<%=post[i].id  %> ">Add to Wishlist</a>
       <table>
         <tr>
           <td>Post Date:</td>
@@ -42,7 +53,18 @@
         </tr>
 
       </table>
-     
+    <a style="background-color:white;
+    border: none;
+    color: black;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    border: 2px solid #11d42e;
+    border-radius: 10px;
+    cursor: pointer;" href="/user/comments/<%=post[i].id%> ">Comments</a> 
       <hr />
     <% } %> 
       </div>

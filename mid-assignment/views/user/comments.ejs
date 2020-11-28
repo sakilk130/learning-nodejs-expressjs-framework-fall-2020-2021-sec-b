@@ -41,8 +41,7 @@
             <td><%=post[0].cost %></td>
           </tr>
         </table>
-
-        <hr />
+        <input type="text" name="comment" placeholder="Drop Your comments" />
       </div>
       <input
         style="
@@ -61,8 +60,15 @@
         "
         type="submit"
         name="submit"
-        value="Add Wishlist"
+        value="comment"
       />
+      <hr />
     </form>
+    <% for(let i=0; i<comments.length;i++){ %> 
+    <span>
+      <h3><%=comments[i].username  %> </h3>
+      <p><%=comments[i].comment  %></p>
+    </span>
+<% } %> 
   </body>
 </html>

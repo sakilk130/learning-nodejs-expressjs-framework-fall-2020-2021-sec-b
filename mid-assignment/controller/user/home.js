@@ -158,4 +158,40 @@ router.post('/allwishlist/delete/:id', (req, res) => {
   }
 });
 
+router.get('/comments/:id', (req, res) => {
+  const id = req.params.id;
+  if (req.cookies['uname'] != null) {
+    travel_guide_model.getByUsername(req.cookies['uname'], function (results) {
+      travel_guide_model.getPostById(id, function (results2) {
+        travel_guide_model.getCommentsById(id, function (results3) {
+          res.render('user/comments', {
+            user: results,
+            post: results2,
+            comments: results3,
+          });
+          // res.send(results3);
+        });
+      });
+    });
+  } else {
+    res.redirect('/login');
+  }
+});
+
+router.post('/comments/:id', (req, res) => {
+  const comment = {
+    id: req.params.id,
+    username: req.cookies['uname'],
+    comment: req.body.comment,
+  };
+  if (req.cookies['uname'] != null) {
+    travel_guide_model.commentPost(comment, function (results) {
+      // res.send('OK');
+      res.redirect(`/user/comments/${req.params.id}`);
+    });
+  } else {
+    res.redirect('/login');
+  }
+});
+
 module.exports = router;

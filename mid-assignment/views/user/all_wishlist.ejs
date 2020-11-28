@@ -41,7 +41,18 @@
           <td><%=post[i].postcost %></td>
         </tr>
       </table>
-      <a href="/user/allwishlist/delete/<%=post[i].wishlistid  %> ">Remove Wishlist</a>
+      <a style="background-color:white;
+      border: none;
+      color: black;
+      padding: 5px 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 13px;
+      margin: 4px 2px;
+      border: 2px solid red;
+      border-radius: 10px;
+      cursor: pointer;" href="/user/allwishlist/delete/<%=post[i].wishlistid  %> ">Remove Wishlist</a>
       <hr />
 
     <% } %> 
