@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 27, 2020 at 06:28 PM
+-- Generation Time: Nov 28, 2020 at 08:20 AM
 -- Server version: 8.0.22-0ubuntu0.20.04.2
 -- PHP Version: 7.4.3
 
@@ -21,6 +21,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `travel_guide`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int NOT NULL,
+  `post_id` int NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `comment` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `post_id`, `username`, `comment`) VALUES
+(1, 5, 'sakil', 'Good'),
+(2, 5, 'sakil', 'Nice'),
+(3, 5, 'sakil', 'Good Deal'),
+(4, 5, 'sakil', 'Good'),
+(5, 5, 'sony', 'owwwwwwwwwwwwwww');
 
 -- --------------------------------------------------------
 
@@ -44,7 +68,9 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`id`, `ffrom`, `tto`, `drescription`, `cost`, `create_date`, `username`, `status`) VALUES
-(5, 'Dhaka', 'Rajshahi', 'Rajshahi is a metropolitan city, and a major urban, commercial and educational centre of Bangladesh.Located on the north bank of the Padma River, near the Bangladesh-India border, the city has a population of over 763,952 residents.', 500, '11/27/2020', 'test', 'accept');
+(5, 'Dhaka', 'Rajshahi', 'Rajshahi is a metropolitan city, and a major urban, commercial and educational centre of Bangladesh.Located on the north bank of the Padma River, near the Bangladesh-India border, the city has a population of over 763,952 residents.', 500, '11/27/2020', 'test', 'accept'),
+(6, 'Dhaka', 'Khulna', 'Khulna is the third largest city in Bangladesh. In the 2011 census, the city had a population of 663,342. The Khulna metropolitan area had an estimated population of 1.022 million in 2014. Khulna is a port on the Rupsha and Bhairab Rivers. ', 1000, '11/28/2020', 'test', 'accept'),
+(7, 'Dhaka', 'Dubai', 'Dubai is a city and emirate in the United Arab Emirates known for luxury shopping, ultramodern architecture and a lively nightlife scene. Burj Khalifa, an 830m-tall tower, dominates the skyscraper-filled skyline. At its foot lies Dubai Fountain.', 50000, '11/28/2020', 'test', 'accept');
 
 -- --------------------------------------------------------
 
@@ -69,7 +95,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `phone`, `type`, `password`) VALUES
 (3, 'test1', 'test', 'test@gmail.com', '323565', 'Scout', '12'),
 (4, 'admin', 'admin', 'admin@admin', '202154845', 'Admin', 'admin'),
-(5, 'Sakil Khan', 'sakil', 'sakilk130@gmail.com', '01721214996', 'General User', '123');
+(5, 'Sakil Khan', 'sakil', 'sakilk130@gmail.com', '01721214996', 'General User', '123'),
+(6, 'Sony', 'sony', 'sony@sony.com', '2121212121', 'General User', '123');
 
 -- --------------------------------------------------------
 
@@ -88,13 +115,17 @@ CREATE TABLE `wishlist` (
 --
 
 INSERT INTO `wishlist` (`id`, `post_id`, `user_id`) VALUES
-(2, 5, 5),
-(3, 5, 5),
 (5, 5, 5);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `post`
@@ -119,22 +150,28 @@ ALTER TABLE `wishlist`
 --
 
 --
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
